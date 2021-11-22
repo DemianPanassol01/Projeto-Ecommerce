@@ -63,7 +63,6 @@ app.use(
         name: "42658742564",
         maxAge: new Date(Date.now() + 3600000),
         secure: true,
-        httpOnly: true,
         keys: [
             "f&vkOHwaD*kRnCQ",
             "Vm^*&@CFKmUvRDRfBsXFdBc4",
