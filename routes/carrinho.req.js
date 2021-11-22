@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const catchAsync = require("../admin/errors/catchAsync");
+const Errors = require("../admin/errors/Errors");
 const Product = require("../admin/schemas/product");
 
 router.get("/carrinho", catchAsync(async(req, res) => {

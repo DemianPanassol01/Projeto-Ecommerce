@@ -2,17 +2,8 @@ document.querySelectorAll('#addCarrinho').forEach(form => {
     form.addEventListener('submit', async(e) => {
         e.preventDefault();
         try {
-            const options = {
-                url: `/carrinho/adicionar/${form.children[0].value}`,
-                method: 'get',
-                headers: { 'X-Requested-With': 'XMLHttpRequest' },
-                proxy: {
-                    protocol: 'https',
-                }
-            };
 
-
-            const response = await axios.get(options);
+            const response = await axios.get(`/carrinho/adicionar/${form.children[0].value}`);
             const { nomeProduto, newProduct } = response.data;
             if (newProduct) {
                 new Msg(`${nomeProduto} foi adicionado ao carrinho`).sucessMsg();
@@ -34,7 +25,7 @@ document.querySelectorAll('#addCarrinho').forEach(form => {
                 }, 3750);
             };
         } catch (error) {
-            console.log(error);
+            throw new Error('Parece que aconteceu algum problema')
         }
     });
 });

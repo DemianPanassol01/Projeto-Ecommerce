@@ -62,7 +62,6 @@ app.use(
     cookieSession({
         name: "42658742564",
         maxAge: new Date(Date.now() + 3600000),
-        secure: true,
         keys: [
             "f&vkOHwaD*kRnCQ",
             "Vm^*&@CFKmUvRDRfBsXFdBc4",
@@ -112,7 +111,7 @@ app.all("*", (req, res, next) => {
 
 app.use(erro500);
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`Ouvindo a porta ${port}`);
