@@ -52,10 +52,7 @@ app.use(
                 scriptSrc: ["'self'", "https://*"],
                 imgSrc: ["'self'", "data:", "https://*"],
             },
-        },
-        crossOriginEmbedderPolicy: true, // ==> Alterar antes de rodar no localhost;
-        crossOriginOpenerPolicy: true, // ==> Alterar antes de rodar no localhost;
-        crossOriginResourcePolicy: true, // ==> Alterar antes de rodar no localhost;
+        }
     })
 );
 app.use(express.static(path.join(__dirname, "/public")));
