@@ -116,6 +116,8 @@ app.all("*", (req, res, next) => {
 
 app.use(erro500);
 
-app.listen(3000, () => {
-    console.log("Ouvindo a porta local 3000");
+const port = process.env.PORT;
+
+app.listen(port, () => {
+    console.log(`Ouvindo a porta ${port}`);
 });
