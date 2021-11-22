@@ -1,0 +1,47 @@
+.banner {
+    display: block;
+    margin: 2rem auto;
+    width: 90%;
+}
+
+main section:last-of-type h4 {
+    margin-bottom: 1.5rem;
+}
+
+main section:last-of-type .container-produtos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container-produtos div {
+    width: 360px;
+    margin: 0 0 2rem;
+}
+
+.card img {
+    height: 358px;
+    width: fit-content;
+    margin: auto;
+}
+
+.card-body-home {
+    position: relative;
+}
+
+.btn-comprar {
+    display: flex;
+    position: absolute;
+}
+
+.btn-comprar form {
+    margin-right: .5rem;
+}
+
+.card-text {
+    margin-bottom: 1.5rem;
+}
+
+.card-descricao {
+    height: 100px;
+}

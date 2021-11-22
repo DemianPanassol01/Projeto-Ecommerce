@@ -1,0 +1,14 @@
+main {
+  min-height: 63vh;
+}
+main > section {
+  margin: 0 1rem;
+}
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+.att {
+  margin-top: 1.5rem;
+  font-style: italic;
+}

@@ -1,0 +1,95 @@
+main {
+    margin: 2rem auto 4.5rem;
+}
+
+main>section {
+    margin: 0 1rem;
+}
+
+.login-box {
+    margin: auto;
+    max-width: 450px;
+    height: fit-content;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+.social {
+    display: flex;
+    margin: 2rem auto;
+    width: fit-content;
+}
+
+.circle {
+    background-color: #eeeeee;
+    color: #ffffff;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.facebook {
+    background-color: #455ca8;
+    color: #ffffff;
+}
+
+.google {
+    background-color: #f74933;
+}
+
+.github {
+    background-color: #403a3a;
+}
+
+.facebook:hover {
+    background-color: #6e83cd;
+}
+
+.google:hover {
+    background-color: #ff7566;
+}
+
+.github:hover {
+    background-color: #4d4d4d;
+}
+
+.division {
+    float: none;
+    margin: 0 auto 18px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.division .line {
+    border-top: 1px solid #dfdfdf;
+    position: absolute;
+    top: 10px;
+    width: 34%;
+}
+
+.division .line.l {
+    left: 0;
+}
+
+.division .line.r {
+    right: 0;
+}
+
+.division span {
+    color: #424242;
+    font-size: 17px;
+}
+
+.btn-login {
+    display: block;
+    margin-left: auto;
+    height: 42px;
+    width: 120px;
+}

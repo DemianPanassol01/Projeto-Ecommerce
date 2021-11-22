@@ -1,0 +1,16 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main {
+    text-align: center;
+    align-self: flex-start;
+    margin: 0 auto 18rem;
+}
+
+main h1 {
+    margin-bottom: 2rem;
+}

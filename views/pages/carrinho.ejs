@@ -1,0 +1,87 @@
+<%- include('../layout/head') %>
+    <link rel="stylesheet" href="/css/carrinho.css">
+    <title>Projeto E-commerce - Carrinho</title>
+    </head>
+
+    <body>
+        <%- include('../layout/header') %>
+            <main>
+                <div class="container">
+                    <ul class="lista-nome-nav">
+                        <li class="lista-nome fw-bold">Produto</li>
+                        <li class="lista-nome fw-bold">Preço</li>
+                        <li class="lista-nome fw-bold">Quantidade</li>
+                        <li class="lista-nome fw-bold">Preço Unidade</li>
+                    </ul>
+                    <span class="linha-baixo"></span>
+                </div>
+
+                <section class="container" id="containerItens">
+                    <% if (cart || cart != []) { %>
+                        <% for( let product of cart ) { %>
+                            <div class="item-carrinho">
+                                <form id="removeProd" method="post">
+                                    <input type="hidden" value="<%= product._id %>">
+                                    <button type="submit" class="btn-close btn-fechar" aria-label="Close"></button>
+                                </form>
+                                <div class="item-img">
+                                    <img class="item-img-produto" src="<%= product.imagens[0].url %>" alt="">
+                                    <h5 class="card-title">
+                                        <%= product.name  %>
+                                    </h5>
+                                </div>
+
+                                <div class="item-info">
+                                    <input type="text" disabled id="precoTotal">
+                                    <div class="input-number">
+                                        <input type="button" value="-" class="button-minus" id="btnMinus">
+                                        <input type="number" step="1" value="1" name="produto[quantidade]" class="quantidade-input" id="inputQnt">
+                                        <input type="button" value="+" class="button-plus" id="btnPlus">
+                                    </div>
+                                    <h6 class="card-subtitle text-muted" id="precoUnidade">
+                                        <%= product.preco %>
+                                    </h6>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% } %>
+                </section>
+
+                <section class="resumo container">
+                    <div class="input-group grupo-cupom">
+                        <input type="text" class="form-control" placeholder="Cupom de Desconto">
+                        <button class="btn btn-primary">Aplicar</button>
+                    </div>
+
+                    <ul class="resumo-box">
+                        <li>
+                            <p>Subtotal</p>
+                            <h6 id="subtotal">R$ 00,00</h6>
+                        </li>
+                        <li>
+                            <p>Frete</p>
+                            <h6 id="valorFrete">R$ 00,00</h6>
+                        </li>
+                        <li>
+                            <p>Cupom</p>
+                            <h6 id="valorCupom">R$ 00,00</h6>
+                        </li>
+                        <div class="preco">
+                            <h4>Total</h4>
+                            <h4 id="valorTotal">R$ 00,00</h4>
+                        </div>
+                    </ul>
+                </section>
+                <form action="/carrinho/checkout" id="checkout" method="post">
+                    <div class="container btn-pagamento">
+                        <button type="submit" form="checkout" class="btn btn-lg btn-primary">Finalizar Compra</button>
+                    </div>
+                </form>
+                <div class="toast-container position-fixed bottom-0 end-0 p-3 toast-div"></div>
+            </main>
+            <script src="/js/Msg.js"></script>
+            <script src="/js/carrinho.js"></script>
+            <%- include('../layout/footer') %>
+    </body>
+
+    </html>

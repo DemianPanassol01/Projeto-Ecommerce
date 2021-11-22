@@ -1,0 +1,72 @@
+<%- include('../layout/head') %>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin">Painel do Admin</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="/">Voltar para Loja</a>
+                            <a class="nav-link" href="/admin/adicionar_produto">Adicionar Produto</a>
+                            <a class="nav-link" href="/sign-out">Desconectar</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h2 class="main-title">Painel de Controle E-commerce</h2>
+
+            <%- include('../layout/flash') %>
+
+                <section class="container">
+                    <h3 class="mb-4">Lista de produtos:</h3>
+                    <% for (let product of products) {%>
+                        <div class="card card-produto mb-3">
+                            <div class="swiper swiper-admin">
+                                <div class="swiper-wrapper">
+                                    <% for( let i = 0; i < product.imagens.length; i++ ) { %>
+                                        <div class="swiper-slide swiper-slide-admin">
+                                            <img src="<%= product.imagens[i].url %>" class="imagem-produto img-fluid" alt="Imagem do Produto">
+                                        </div>
+                                        <% } %>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                            <div class="card-body card-body-admin">
+                                <h5 class="card-title">
+                                    <%= product.name %>
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted descricao-preco">
+                                    <%= product.preco %>
+                                </h6>
+                                <p class="card-text descricao-produto">
+                                    <%= product.descricao %>
+                                </p>
+                                <div class="btn-container">
+                                    <a href="/admin/editar_produto/<%= product._id %>" class="btn btn-outline-primary">Editar</a>
+
+                                    <form action="/admin/<%= product._id %>?_method=DELETE" method="post">
+                                        <button type="submit" class="btn btn-outline-danger">Deletar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                </section>
+        </main>
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script src="/js/swiper.js"></script>
+        <%- include('../layout/footer') %>
+    </body>
+
+    </html>

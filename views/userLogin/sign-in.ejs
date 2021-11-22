@@ -1,0 +1,65 @@
+<%- include('../layout/head') %>
+
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Projeto E-commerce - Login</title>
+    </head>
+
+    <body>
+        <main>
+            <section>
+                <%- include('../layout/flash') %>
+                    <section class="login-box">
+                        <div class="login-box-header">
+                            <h4>Login com</h4>
+                        </div>
+                        <div class="login-box-body">
+                            <div class="social">
+                                <a class="circle github" href="/">
+                                    <i class="fab fa-github fa-fw"></i>
+                                </a>
+                                <a class="circle google" href="/">
+                                    <i class="fab fa-google-plus-g fa-fw"></i>
+                                </a>
+                                <a class="circle facebook" href="/">
+                                    <i class="fab fa-facebook-f fa-fw"></i>
+                                </a>
+                            </div>
+                            <div class="division">
+                                <div class="line l"></div>
+                                <span>Ou</span>
+                                <div class="line r"></div>
+                            </div>
+
+                            <form method="post" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="inputEmail" class="form-label">Endereço de Email</label>
+                                    <input type="text" class="form-control" id="inputEmail" autocomplete="email" name="username" required>
+                                    <div class="invalid-feedback">
+                                        Insira um email válido
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="inputPassword" class="form-label">Senha</label>
+                                    <input type="password" class="form-control" id="inputPassword" autocomplete="current-password" name="password" required>
+                                    <div class="invalid-feedback">
+                                        Insira sua senha
+                                    </div>
+                                </div>
+
+                                <a href="/sign-in/recuperar-senha"><small>Esqueceu a senha? Clique aqui</small></a>
+
+                                <button class="btn btn-primary btn-login" type="submit">Login</button>
+                            </form>
+                        </div>
+                        <div class="login-box-footer">
+                            <p>Precisa de uma conta? <a href="/create-account">Clique aqui</a></p>
+                        </div>
+                    </section>
+            </section>
+        </main>
+        <%- include('../layout/footer') %>
+            <script src="/js/login.js"></script>
+    </body>
+
+    </html>

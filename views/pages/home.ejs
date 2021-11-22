@@ -1,0 +1,58 @@
+<%- include('../layout/head') %>
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Projeto E-commerce - Home</title>
+
+    </head>
+
+    <body>
+        <%- include('../layout/header') %>
+            <main>
+
+                <%- include('../layout/flash') %>
+                    <section class="container">
+                        <% if (!currentUser) { %>
+                            <h5>Seja bem vindo! Por favor, faça o <a href="/sign-in">login</a> ou <a href="/create-account">cadastre-se</a> para acessar ao painel do admin</h5>
+                            <% } else { %>
+                                <h5>Bem vindo de volta
+                                    <%= currentUser.name %>!. Acesse o <a href="/admin">Painel do Admin</a> por aqui.</h5>
+                                <% } %>
+
+                                    <img class="banner" src="/img/banner2.jpg" alt="Banner Promoção">
+                    </section>
+
+                    <section class="container">
+                        <h4>Produtos em Destaque:</h4>
+                        <div class="container-produtos">
+                            <% for( let product of products.slice(0, 3) ) { %>
+                                <div class="card">
+                                    <img src="<%= product.imagens[0].url %> " alt="">
+                                    <div class="card-body card-body-home">
+                                        <h5 class="card-title">
+                                            <%= product.name %>
+                                        </h5>
+                                        <h6 class="card-subtitle mb-2 text-muted descricao-preco">
+                                            <%= product.preco %>
+                                        </h6>
+                                        <p class="card-text card-descricao overflow-auto">
+                                            <%= product.descricao %>
+                                        </p>
+                                        <div class="btn-comprar">
+                                            <form id="addCarrinho" method="GET">
+                                                <input type="hidden" value="<%= product._id %>">
+                                                <button type="submit" class="btn btn-primary">Comprar</button>
+                                            </form>
+                                            <a href="/produto/<%= product._id %>" class="btn btn-outline-primary">Ver Detalhes</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </section>
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3 toast-div"></div>
+            </main>
+            <script src="/js/Msg.js"></script>
+            <script src="/js/addCart.js"></script>
+            <%- include('../layout/footer') %>
+    </body>
+
+    </html>

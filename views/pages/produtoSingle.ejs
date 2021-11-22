@@ -1,0 +1,73 @@
+<%- include('../layout/head') %>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/star.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <title>Projeto E-commerce -
+        <%= product.name %>
+    </title>
+
+    </head>
+
+    <body>
+        <%- include('../layout/header') %>
+            <main>
+                <section class="container container-produto">
+                    <div class="swiper swiper-produto">
+                        <div class="swiper-wrapper">
+                            <% for( let i = 0; i < product.imagens.length; i++ ) { %>
+                                <div class="swiper-slide"><img src="<%= product.imagens[i].url %> " alt=""></div>
+                                <% } %>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                    <div class="card card-produto">
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <%= product.name %>
+                            </h2>
+                            <h5 class="card-subtitle mb-2">
+                                <%= product.preco %>
+                            </h5>
+
+                            <fieldset class="starability-coinFlip">
+                                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                                <input type="radio" id="first-rate1" name="rating" value="1" />
+                                <label for="first-rate1" title="Terrible">1 star</label>
+                                <input type="radio" id="first-rate2" name="rating" value="2" />
+                                <label for="first-rate2" title="Not good">2 stars</label>
+                                <input type="radio" id="first-rate3" name="rating" value="3" />
+                                <label for="first-rate3" title="Average">3 stars</label>
+                                <input type="radio" id="first-rate4" name="rating" value="4" />
+                                <label for="first-rate4" title="Very good">4 stars</label>
+                                <input type="radio" id="first-rate5" name="rating" value="5" />
+                                <label for="first-rate5" title="Amazing">5 stars</label>
+                            </fieldset>
+                            <div class="mb-5">
+                                <p class="texto-produto card-text overflow-auto">
+                                    <%= product.descricao %>
+                                </p>
+                            </div>
+                            <div class="d-grid gap-2 d-md-block">
+                                <form id="addCarrinho" method="GET">
+                                    <input type="hidden" id="productID" value="<%= product._id %>">
+                                    <button type="submit" class="btn btn-primary">Comprar</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <div class="toast-container position-fixed bottom-0 end-0 p-3 toast-div"></div>
+            </main>
+            <script src="/js/Msg.js"></script>
+            <script src="/js/addCart.js"></script>
+            <%- include('../layout/footer') %>
+
+                <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+                <script src="/js/swiper.js"></script>
+    </body>
+
+    </html>

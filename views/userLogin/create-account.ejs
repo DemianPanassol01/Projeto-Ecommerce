@@ -1,0 +1,62 @@
+<%- include('../layout/head') %>
+
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Projeto E-commerce - Nova conta</title>
+    </head>
+
+    <body>
+        <main style="margin-bottom: 6.5rem;">
+            <section>
+                <%- include('../layout/flash') %>
+                    <section class="login-box">
+                        <div class="login-box-header">
+                            <h4>Crie sua conta</h4>
+                        </div>
+                        <div class="login-box-body">
+                            <form method="post" class="needs-validation" novalidate>
+                                <div class="mb-3 mt-3">
+                                    <label for="inputName" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="inputName" name="user[name]" required value="<%= info.name %>">
+                                    <div class="invalid-feedback">
+                                        Insira seu nome
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="inputEmail" class="form-label">Endereço de Email</label>
+                                    <input type="email" class="form-control" id="inputEmail" autocomplete="email" name="user[username]" required value="<%= info.email %>">
+                                    <div class="invalid-feedback">
+                                        Insira um email válido
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="inputPassword" class="form-label">Senha</label>
+                                    <input type="password" class="form-control" id="inputPassword" autocomplete="current-password" name="user[password]" required value="<%= info.password %>">
+                                    <div class="invalid-feedback">
+                                        Insira sua senha
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="inputPassword2" class="form-label">Confirme sua senha</label>
+                                    <input type="password" class="form-control" id="inputPassword2" autocomplete="current-password" name="passwordConf" required value="<%= info.passwordConf %>">
+                                    <div class="invalid-feedback">
+                                        As senhas devem ser idênticas
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary btn-login" type="submit">Registrar</button>
+                            </form>
+                        </div>
+                        <div class="login-box-footer">
+                            <p>Já possui uma conta? <a href="/sign-in">Faça login</a></p>
+                        </div>
+                    </section>
+            </section>
+        </main>
+        <%- include('../layout/footer') %>
+            <script src="/js/login.js"></script>
+    </body>
+
+    </html>

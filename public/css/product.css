@@ -1,0 +1,33 @@
+main {
+    margin-bottom: 10rem;
+}
+
+.container-produto {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.swiper-produto {
+    width: 360px;
+    height: 300px;
+    margin: 0 2rem 0 0;
+}
+
+.swiper-slide {
+    display: flex;
+}
+
+.swiper-slide img {
+    margin: auto;
+    width: max-content;
+    height: 100%;
+}
+
+.card-produto {
+    width: 520px;
+}
+
+.texto-produto {
+    max-height: 100px;
+}

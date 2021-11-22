@@ -1,0 +1,43 @@
+<%- include('../layout/head') %>
+
+<link rel="stylesheet" href="/css/sobre.css">
+<title>Projeto E-commerce - Sbre Nós</title>
+
+</head>
+
+<body>
+    <%- include('../layout/header') %>
+    <main>
+        <section>
+            <h2>Entre em contato</h2>
+
+            <form method="post" class="contato">
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="inputName" autocomplete="name" name="user[name]">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Endereço de Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        autocomplete="email" name="user[email]">
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputTel" class="form-label">Telefone</label>
+                    <input type="number" autocomplete="tel" class="form-control" id="inputTel" name="user[tel]">
+                </div>
+
+                <div class="mb-3">
+                    <label for="textArea" class="form-label">Mensagem</label>
+                    <textarea class="form-control" name="user[message]" id="textArea" cols="30" rows="5"></textarea>
+                </div>
+                <button type="submit" class=" d-block btn btn-primary ms-auto">Enviar</button>
+            </form>
+
+        </section>
+    </main>
+    <%- include('../layout/footer') %>
+</body>
+
+</html>
